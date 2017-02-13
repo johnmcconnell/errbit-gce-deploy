@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  labels:
+    name: mongodb-pod
+    context: default
+spec:
+  ports:
+    - port: 27017
+      name: default
+    - port: 27018
+      name: shardsvr
+    - port: 27019
+      name: configsvr
+    - port: 28017
+      name: webstatus
+  selector:
+    name: mongodb-pod
+    context: default

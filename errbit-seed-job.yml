@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: errbit-seed
+spec:
+  template:
+    metadata:
+      name: errbit-seed
+    spec:
+      containers:
+      - name: errbit-seed
+        image: griff/errbit
+        args: ["seed"]
+      restartPolicy: Never

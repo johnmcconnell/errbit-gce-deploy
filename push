@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ "master" != "$TRAVIS_BRANCH"] && [ -z "$TRAVIS_TAG" ]
+then
+  exit 0
+fi
+
+docker pull griff/errbit
+
+docker tag griff/errbit $IMAGE_NAME
+
+gcloud docker -- push $IMAGE_NAME

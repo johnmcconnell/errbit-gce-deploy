@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+kubectl delete -f mongo-pod.yml
+kubectl delete -f mongo-service.yml
+kubectl delete -f errbit-service.yml
+kubectl delete -f errbit-replication-controller.yml

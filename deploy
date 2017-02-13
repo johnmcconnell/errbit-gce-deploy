@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ "master" != "$TRAVIS_BRANCH" ]
+then
+  exit 0
+fi
+
+kubectl create -f mongo-pod.yml
+kubectl create -f mongo-service.yml
+kubectl create -f errbit-service.yml
+kubectl create -f errbit-replication-controller.yml
